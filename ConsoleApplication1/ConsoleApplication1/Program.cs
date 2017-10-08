@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,23 +125,19 @@ namespace ConsoleApplication1
 
 
 
-
-            var albums = new Album[]
-           {
-                new Album()
-                {
-                    AlbumId = 2,
-                    AlbumName = "La Maison De Mon Reve",
-                    Artist = "CocoRosie"
-                }
-           };
-            var tracks = new Track[]
+            new Album()
+            {
+                AlbumId = 2,
+                AlbumName = "La Maison De Mon Reve",
+                Artist = "CocoRosie"
+            };
+                var tracksAlbum = new Track[]
             {
                 new Track()
                 {
                     AlbumId = 2,
                     TrackName = "Terrible Angels",
-                    Duration = new TimeSpan(0,4,10)
+                    Duration = TimeSpan.Parse("0:4:10")
                 },
                 new Track()
                 {
@@ -211,5 +208,12 @@ namespace ConsoleApplication1
                 
             };
         }
+
+   
+
+       
+
+
+
     }
 }
