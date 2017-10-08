@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackAndAlbumList", "TrackAndAlbumList\TrackAndAlbumList.csproj", "{99D83BBA-DD32-4C77-9143-5043ACC2C634}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks", "AdventureWorks\AdventureWorks.csproj", "{B16E3A96-73F4-48B7-98C7-4D8F10C492B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{99D83BBA-DD32-4C77-9143-5043ACC2C634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D83BBA-DD32-4C77-9143-5043ACC2C634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D83BBA-DD32-4C77-9143-5043ACC2C634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16E3A96-73F4-48B7-98C7-4D8F10C492B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16E3A96-73F4-48B7-98C7-4D8F10C492B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16E3A96-73F4-48B7-98C7-4D8F10C492B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16E3A96-73F4-48B7-98C7-4D8F10C492B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
