@@ -12,6 +12,7 @@ namespace LINQWorkshop
         static void Main(string[] args)
         {
             CreateAlbumsAndTracks();
+            Console.ReadLine(); 
         }
 
         private static void CreateAlbumsAndTracks()
@@ -1088,6 +1089,170 @@ namespace LINQWorkshop
             {
                 Console.WriteLine($"{song.TrackName, -35} | Duration: {song.Duration}");
             }
+
+
+
+            var shortestSongDuration = tracksOfParticularAlbum.Min(t => t.Duration);
+            var longestSongDuration = tracksOfParticularAlbum.Max(t => t.Duration);
+
+            var shortestSongName = tracksOfParticularAlbum.First(s => s.Duration == shortestSongDuration).TrackName;
+            var longestSongName = tracksOfParticularAlbum.First(s => s.Duration == longestSongDuration).TrackName;
+
+
+
+            
+            var shortestSong = tracksOfParticularAlbum.First(t => t.Duration == shortestSongDuration);
+
+            var averageSongDurtion = tracksOfParticularAlbum.Average(t => t.Duration.TotalSeconds);
+
+            Console.WriteLine(averageSongDurtion);
+           
+           
+
+            TimeSpan zmierzonyCzas = new TimeSpan(0, 5, 45);
+            var ileSekund = zmierzonyCzas.TotalSeconds;
+            var ponownieTimeSpan = TimeSpan.FromSeconds(ileSekund);
+
+            var sumOfAlbumTracks = tracksOfParticularAlbum.Sum(t => t.Duration.TotalSeconds);
+
+            Console.WriteLine(sumOfAlbumTracks);
+
+
+            var albumList =
+                from album in albums
+                join song in tracks on album.AlbumId equals song.AlbumId
+                select new { AlbumData = album, SongData = song };
+
+            foreach (var alist in albumList)
+            {
+                Console.WriteLine($"{alist.AlbumData.AlbumName,-15} | {alist.AlbumData.Artist, -15} | { alist.SongData.TrackName,-35} | duration: {alist.SongData.Duration}");
+            }
+
+
+            var hierarchyList =
+                from album in albums
+                join song in tracks on album.AlbumId equals song.AlbumId
+                group song by new { album.AlbumId, album.Artist, album.AlbumName } into fullAlbumSong
+              
+                select fullAlbumSong;
+            
+
+            foreach (var a in hierarchyList)
+            {
+                Console.WriteLine ();
+                Console.WriteLine($"{a.Key.AlbumId,-5} | {a.Key.Artist} {a.Key.AlbumName,-25}");
+
+                foreach (var song in a)
+                {
+                    Console.WriteLine($"{song.TrackName,-35} duration: {song.Duration}");
+                }
+            }
+
+            //var orderListOfAlbum =
+            //    from a in hierarchyList
+            //    orderby a.Key.AlbumId ascending
+            //    select a;
+
+
+
+            //Uzyskanie listy utworów i albumów po połączeniu
+
+            var allConnected = (from allbums in albums
+
+                                join trex in tracks on allbums.AlbumId equals trex.AlbumId
+
+                                select new { Album = allbums, Song = trex }).ToList();
+
+            //Tworzenie listy najdłuższego i najkrótszego utworu na albumach
+
+            var allConnectedShortest = allConnected.GroupBy(a => a.Album, a => a.Song, (key, s) => new { Album = key, Song = s.Max(e => e.Duration) }).ToList();
+
+            var allConnectedLongest = allConnected.GroupBy(a => a.Album, a => a.Song, (key, s) => new { Album = key, Song = s.Min(e => e.Duration) }).ToList();
+
+
+
+
+
+            //Wypisanie typu tracker
+
+            foreach (var song in allConnected)
+
+            {
+
+                //Ustawianie kolorków dla najdłuższego i najkrótszego utworu
+
+                if (song.Song.Duration == allConnectedShortest.Where(t => t.Album.AlbumName == song.Album.AlbumName).First().Song)
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                else if (song.Song.Duration == allConnectedLongest.Where(t => t.Album.AlbumName == song.Album.AlbumName).First().Song)
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+                else
+
+                    Console.ResetColor();
+
+                //Wypisanie
+
+                Console.WriteLine($"\n{song.Album.AlbumName,-25} {song.Album.Artist,+25} | {song.Song.TrackName,-40} {song.Song.Duration,+10}");
+
+            }
+
+            //Reset
+
+            Console.ResetColor();
+
+
+
+            //Wypisanie typu grupowego
+
+            foreach (var album in allConnected.GroupBy(a => a.Album, a => a.Song, (key, s) => new { Album = key, Song = s.ToList() }))
+
+            {
+
+                //Wypisanie albumów
+
+                Console.WriteLine($"\n{album.Album.AlbumName,-30} {album.Album.Artist,+23}");
+
+                foreach (var song in album.Song)
+
+                {
+
+                    //Ustawianie kolorków dla najdłuższego i najkrótszego utworu
+
+                    if (song.Duration == allConnectedShortest.Where(t => t.Album.AlbumName == album.Album.AlbumName).First().Song)
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                    else if (song.Duration == allConnectedLongest.Where(t => t.Album.AlbumName == album.Album.AlbumName).First().Song)
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                    else
+
+                        Console.ResetColor();
+
+                    //Wypisanie utworów
+
+                    Console.WriteLine($"\n      {song.TrackName,-45} {song.Duration,+17}");
+
+                }
+
+                //Reset i nowa linia
+
+                Console.ResetColor();
+
+                Console.WriteLine("\n");
+
+            }
+
+
+
+
+
+
+
 
         }
     }
