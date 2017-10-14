@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201710141218481_add Zalogant.Designer.cs">
       <DependentUpon>201710141218481_add Zalogant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141305594_zmiany123.cs" />
+    <Compile Include="Migrations\201710141305594_zmiany123.Designer.cs">
+      <DependentUpon>201710141305594_zmiany123.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kierunek.cs" />
     <Compile Include="Models\Lot.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710141218481_add Zalogant.resx">
       <DependentUpon>201710141218481_add Zalogant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141305594_zmiany123.resx">
+      <DependentUpon>201710141305594_zmiany123.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,7 +18,10 @@ namespace Airlines.Models
         [StringLength(4)]
         public string NrLotu { get; set; }
 
+
+        
         public int KierunekId { get; set; }
+        
         public int SamolotId { get; set; }
         public int ZalogaId { get; set; }
 

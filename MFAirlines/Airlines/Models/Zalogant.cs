@@ -32,7 +32,11 @@ namespace Airlines.Models
         [StringLength(11)]
         public string NrTelefonu { get; set; }
 
-        public int StanowiskokId { get; set; }
-        public int ZalogaId { get; set; }
+
+        public int StanowiskoId { get; set; }
+       
+
+      
+        //public int ZalogaId { get; set; }
     }
 }
