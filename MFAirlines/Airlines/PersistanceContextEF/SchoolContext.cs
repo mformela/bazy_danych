@@ -16,5 +16,11 @@ namespace Airlines.PersistanceContextEF
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public object Course { get; internal set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

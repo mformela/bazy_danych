@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -139,9 +140,39 @@ namespace Airlines.PersistanceContextEF
                 DateOfBirth = DateTime.Now.AddYears(-19),
                 PESEL = Guid.NewGuid().ToString(),
             });
+
+
+
+            var course = new Course()
+
+            {
+                CourseId = 1,
+                Name = ".NET Starter",
+                Code = "dotNet150",
+                Description = ".NET Course by Software Development Academy",
+                Students = defaultStudents.ToList()
+            };
+
+
+
+
             foreach (Student student in defaultStudents)
+
                 context.Students.Add(student);
+            context.Courses.Add(course);
             base.Seed(context);
+
+
         }
+
+           
+            
+
+        
+
+   
+
+
+
     }
 }

@@ -14,6 +14,9 @@ namespace Airlines.Models
         public string Description { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+   
+           
     }
    
 }

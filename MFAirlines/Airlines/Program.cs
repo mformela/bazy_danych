@@ -1,4 +1,5 @@
-﻿using Airlines.PersistanceContextEF;
+﻿using Airlines.Models;
+using Airlines.PersistanceContextEF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,40 @@ namespace Airlines
     {
         static void Main(string[] args)
         {
-            var dbContext = new SchoolContext();
-            foreach (var student in dbContext.Students)
+            using (var dbContext = new SchoolContext())
             {
-                Console.WriteLine($"{student.Surname}");
+
+                foreach (var student in dbContext.Students)
+                {
+                    Console.WriteLine($"{student.Surname}");
+                }
+
+
+
+
+             //var innerCourseStudent =
+             //    from course in Course
+             //    join student in Student on course.CourseId equals student.CourseId
+             //    select new { CourseName = course.Name, Student = student.Surname };
+
+             //   foreach (var course in dbContext.Courses)
+             //   {
+             //       Console.WriteLine($"{innerCourseStudent}");
+             //   }
+
+            
+                
+
             }
+
+            Console.WriteLine("Koniec");
             Console.ReadLine();
+
+
+
+
+
         }
+        
     }
 }
