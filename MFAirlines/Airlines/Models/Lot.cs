@@ -22,8 +22,10 @@ namespace Airlines.Models
         public int SamolotId { get; set; }
         public int ZalogaId { get; set; }
 
-        public int DataOdlotu { get; set; }
-        public int DataPrzylotu { get; set; }
+      
+        public DateTime DataOdlotu { get; set; }
+    
+        public DateTime DataPrzylotu { get; set; }
     }
 
 }

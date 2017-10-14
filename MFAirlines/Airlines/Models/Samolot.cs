@@ -18,6 +18,7 @@ namespace Airlines.Models
         public string NrSeryjny { get; set; }
 
         public int TypId { get; set; }
+
         [ForeignKey("TypId")]
         public TypSamolotu TypSamolotu { get; set; }
 

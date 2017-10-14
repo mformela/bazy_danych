@@ -13,16 +13,16 @@ namespace Airlines.Models
         [Required]
         public int KierunekId { get; set; }
 
-       
-        [Required]
-        [Column(TypeName = "nchar")]
-        [StringLength(50)]
-        public int DataOdlotu { get; set; }
 
         [Required]
         [Column(TypeName = "nchar")]
         [StringLength(50)]
-        public int DataPrzylotu { get; set; }
+        public string MiejsceOdlotu { get; set; }
+
+        [Required]
+        [Column(TypeName = "nchar")]
+        [StringLength(50)]
+        public string MiejscePrzylotu { get; set; }
 
         public ICollection<Lot> Lot { get; set; }
     }
