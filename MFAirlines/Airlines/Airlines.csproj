@@ -56,16 +56,26 @@
     <Compile Include="Migrations\201710141154150_InitialCreate.Designer.cs">
       <DependentUpon>201710141154150_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141208254_add Stanowisko.cs" />
+    <Compile Include="Migrations\201710141208254_add Stanowisko.Designer.cs">
+      <DependentUpon>201710141208254_add Stanowisko.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141218481_add Zalogant.cs" />
+    <Compile Include="Migrations\201710141218481_add Zalogant.Designer.cs">
+      <DependentUpon>201710141218481_add Zalogant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kierunek.cs" />
     <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\Odprawa.cs" />
     <Compile Include="Models\OdprawaPasazer.cs" />
     <Compile Include="Models\Pasazer.cs" />
+    <Compile Include="Models\Stanowisko.cs" />
     <Compile Include="Models\TypSamolotu.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Samolot.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Zalogant.cs" />
     <Compile Include="PersistanceContextEF\SchoolContext.cs" />
     <Compile Include="PersistanceContextEF\SchoolInitializer.cs" />
     <Compile Include="Program.cs" />
@@ -78,6 +88,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710141154150_InitialCreate.resx">
       <DependentUpon>201710141154150_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141208254_add Stanowisko.resx">
+      <DependentUpon>201710141208254_add Stanowisko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141218481_add Zalogant.resx">
+      <DependentUpon>201710141218481_add Zalogant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,6 +27,11 @@ namespace Airlines.PersistanceContextEF
         public DbSet<Odprawa> Odprawa { get; set; }
         public DbSet<Pasazer> Pasazer { get; set; }
         public DbSet<OdprawaPasazer> OdprawaPasazer { get; set; }
+        public DbSet<Stanowisko> Stanowisko { get; set; }
+        public DbSet<Zalogant> Zalogant { get; set; }
+
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
 
